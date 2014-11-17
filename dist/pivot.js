@@ -946,15 +946,18 @@
 					if (v == null) {
 						v = "null";
 					}
-					if ((_base = axisValues[k])[v] == null) {
-						_base[v] = 0;
+					if (axisValues[k] !== undefined) {
+						if ((_base = axisValues[k])[v] === null) {
+							_base[v] = 0;
+						}
+						_results.push(axisValues[k][v] ++);
 					}
-					_results.push(axisValues[k][v] ++);
+
 				}
 				return _results;
 			});
-			uiTable = $("<table cellpadding='5'>");
-			rendererControl = $("<td>");
+			uiTable = $("<table cellpadding='5' class='hacktable'>");
+			rendererControl = $("<td class='hack' valign='top'><label>Type</label><br>");
 			renderer = $("<select class='pvtRenderer'>").appendTo(rendererControl).bind("change", function() {
 				return refresh();
 			});
@@ -963,7 +966,7 @@
 				if (!__hasProp.call(_ref1, x)) continue;
 				$("<option>").val(x).html(x).appendTo(renderer);
 			}
-			colList = $("<td class='pvtAxisContainer pvtUnused'>");
+			colList = $("<td class='pvtAxisContainer pvtUnused'><center><label>Fields</label></center>");
 			shownAttributes = (function() {
 				var _j, _len1, _results;
 				_results = [];
@@ -1006,13 +1009,13 @@
 					valueList.append($("<p>").html(opts.localeStrings.tooMany));
 				} else {
 					btns = $("<p>").appendTo(valueList);
-					btns.append($("<button>").html(opts.localeStrings.selectAll).bind("click", function() {
+					btns.append($("<button class='btn btn-default btn-sm'>").html(opts.localeStrings.selectAll).bind("click", function() {
 						return valueList.find("input:visible").prop("checked", true);
 					}));
-					btns.append($("<button>").html(opts.localeStrings.selectNone).bind("click", function() {
+					btns.append($("<button class='btn btn-default btn-sm'>").html(opts.localeStrings.selectNone).bind("click", function() {
 						return valueList.find("input:visible").prop("checked", false);
 					}));
-					btns.append($("<input>").addClass("pvtSearch").attr("placeholder", opts.localeStrings.filterResults).bind("keyup", function() {
+					btns.append($("<input class='form-control'>").addClass("pvtSearch").attr("placeholder", opts.localeStrings.filterResults).bind("keyup", function() {
 						var filter;
 						filter = $(this).val().toLowerCase();
 						return $(this).parents(".pvtFilterBox").find('label span').each(function() {
@@ -1052,7 +1055,7 @@
 						return valueList.toggle(0, refresh);
 					}
 				};
-				$("<p>").appendTo(valueList).append($("<button>").text("OK").bind("click", updateFilter));
+				$("<p>").appendTo(valueList).append($("<button  class='btn btn-primary btn-sm'>").text("OK").bind("click", updateFilter));
 				showFilterList = function(e) {
 					valueList.css({
 						left: e.pageX,
@@ -1082,10 +1085,10 @@
 				if (!__hasProp.call(_ref2, x)) continue;
 				aggregator.append($("<option>").val(x).html(x));
 			}
-			$("<td class='pvtVals'>").appendTo(tr1).append(aggregator).append($("<br>"));
-			$("<td class='pvtAxisContainer pvtHorizList pvtCols'>").appendTo(tr1);
+			$("<td class='pvtVals'><label>Aggregator</label><br>").appendTo(tr1).append(aggregator).append($("<br>"));
+			$("<td class='pvtAxisContainer pvtHorizList pvtCols'><label>Columns</label><br>").appendTo(tr1);
 			tr2 = $("<tr>").appendTo(uiTable);
-			tr2.append($("<td valign='top' class='pvtAxisContainer pvtRows'>"));
+			tr2.append($("<td valign='top' class='pvtAxisContainer pvtRows'><center><label>Rows</label></center><br>"));
 			pivotTable = $("<td valign='top' class='pvtRendererArea'>").appendTo(tr2);
 			if (opts.unusedAttrsVertical === true || unusedAttrsVerticalAutoOverride) {
 				uiTable.find('tr:nth-child(1)').prepend(rendererControl);
@@ -1197,11 +1200,9 @@
 						aggregatorName: aggregator.val(),
 						rendererName: renderer.val()
 					});
-
-					if (callbackRefresh) {
+					if (callbackRefreshDelegate) {
 						callbackRefreshDelegate(pivotUIOptions); //Update options delegate
 					}
-
 					_this.data("pivotUIOptions", pivotUIOptions);
 					if (opts.autoSortUnusedAttrs) {
 						natSort = $.pivotUtilities.naturalSort;
