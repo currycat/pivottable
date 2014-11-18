@@ -41,6 +41,13 @@ This is a hack of [Nicolas Kruchten](http://nicolas.kruchten.com) gorgeus PivotT
 
 	};
 ```
+
+## Screenshots
+### View mode
+![screenshot_375](https://cloud.githubusercontent.com/assets/947532/5089872/509d6cf8-6f3e-11e4-8f7c-6920d0d0f714.png)
+### Edit mode
+![screenshot_376](https://cloud.githubusercontent.com/assets/947532/5089875/53d0aafc-6f3e-11e4-8ec8-13107db66839.png)
+
 #Original README
 ##PivotTable.js
 
