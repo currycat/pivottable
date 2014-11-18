@@ -7,7 +7,7 @@ This is a hack of [Nicolas Kruchten](http://nicolas.kruchten.com) gorgeus PivotT
 - [bootstrap](http://getbootstrap.com/)ped css
 - new graphs for Google Chart
 
-## Example of use
+## Example of use (hacked ver) 
 ### HTML (AngularJS)
 ```
 <div ng-class="{pivotEditable: !viewModeTable1}" ng-show="selectedReport">
