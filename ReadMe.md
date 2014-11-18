@@ -1,3 +1,27 @@
+#Currycat Pivottable
+This is a hack of [Nicolas Kruchten](http://nicolas.kruchten.com) gorgeus PivotTable library that adds sort by totals and ranking. A callback method for table changes was added because onRefresh was not working for me
+
+## Example of use
+
+```
+		$('#pivottable').replaceWith('<div id="pivottable"></div>');
+
+		$('#pivottable').pivotUI(datasource, {
+			rows: template.rows,
+			cols: template.cols,
+			// vals: ['sales', 'earning'],
+			vals: template.vals,
+			// renderers: $.pivotUtilities.renderers,
+			renderers: $.extend($.pivotUtilities.renderers, $.pivotUtilities.gchart_renderers),
+			aggregatorName: template.aggregatorName,
+			// hiddenAttributes: ['downloadType', 'saleType', 'country', 'currency', 'label', 'contentType'],
+			autoSortUnusedAttrs: true,
+			unusedAttrsVertical: true,
+			rendererName: template.rendererName,
+			onRefreh: _pivotTableChanged,
+		}, null, null, _pivotTableChanged, template.sortByTotal, (template.sortByTotal ? template.top : 0));
+```
+
 #PivotTable.js
 
 PivotTable.js is a Javascript Pivot Table library with drag'n'drop functionality built on top of jQuery/jQueryUI and originally written in CoffeeScript by [Nicolas Kruchten](http://nicolas.kruchten.com) at [Datacratic](http://datacratic.com). It is available under an MIT license (see bottom of this document).
