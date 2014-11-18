@@ -1,9 +1,24 @@
 #Currycat Pivottable
-This is a hack of [Nicolas Kruchten](http://nicolas.kruchten.com) gorgeus PivotTable library that adds sort by totals and ranking. A callback method for table changes was added because onRefresh was not working for me
+This is a hack of [Nicolas Kruchten](http://nicolas.kruchten.com) gorgeus PivotTable library that adds:
+- sort by totals 
+- ranking
+- callback method for table changes (onRefresh was not working for me)
+- css for edit/view mode
+- [bootstrap](http://getbootstrap.com/)ped css
+- new graphs for Google Chart
 
 ## Example of use
+### HTML (AngularJS)
+```
+<div ng-class="{pivotEditable: !viewModeTable1}" ng-show="selectedReport">
+	<div id="pivottable"></div>
+</div>
+```
+### JS
 
 ```
+	var _configPivotTablesAndGraphics = function(datasource, template) {
+		//Destroy the previous one...
 		$('#pivottable').replaceWith('<div id="pivottable"></div>');
 
 		$('#pivottable').pivotUI(datasource, {
@@ -20,6 +35,11 @@ This is a hack of [Nicolas Kruchten](http://nicolas.kruchten.com) gorgeus PivotT
 			rendererName: template.rendererName,
 			onRefreh: _pivotTableChanged,
 		}, null, null, _pivotTableChanged, template.sortByTotal, (template.sortByTotal ? template.top : 0));
+
+
+		$('#pivottable').change();
+
+	};
 ```
 
 #PivotTable.js
