@@ -41,18 +41,18 @@ This is a hack of [Nicolas Kruchten](http://nicolas.kruchten.com) gorgeus PivotT
 
 	};
 ```
-
-#PivotTable.js
+#Original README
+##PivotTable.js
 
 PivotTable.js is a Javascript Pivot Table library with drag'n'drop functionality built on top of jQuery/jQueryUI and originally written in CoffeeScript by [Nicolas Kruchten](http://nicolas.kruchten.com) at [Datacratic](http://datacratic.com). It is available under an MIT license (see bottom of this document).
 
-##What does it do?
+###What does it do?
 
 PivotTable.js' basic function is to turn a data set into a summary table and then optionally add a true 2-d drag'n'drop UI to allow a user to manipulate this summary table, turning it into a pivot table, very similar to the one found in older versions of Microsoft Excel with a bunch of extra developer-oriented features and some visualization effects. 
 
 With an optional add-on, the summary table can be rendered as a Google Chart, turning the pivot table into a pivot chart. A d3-based Treemap add-on is also included.
 
-##Why is it good?
+###Why is it good?
 
 * lightweight: the core (without Google Charts or D3 support) is a single file with less than 1000 LOC of CoffeeScript, compiles down to 6.3kb of Javascript minified and gzipped, depends only on jQuery and jQueryUI's 'sortable'
 * works wherever jQuery and jQueryUI work (tested with jQuery 1.8.3 and jQueryUI 1.9.2)
@@ -67,7 +67,7 @@ With an optional add-on, the summary table can be rendered as a Google Chart, tu
 * works on mobile devices with jQuery UI Touch Punch
 
 
-##Where's the demo?
+###Where's the demo?
 
 A demo of PivotTable.js loaded up with a sample dataset of Canadian Members of Parliament as of 2012 can be found here: [PivotTable.js demo](http://nicolaskruchten.github.io/pivottable/examples/mps_prepop.html). 
 
@@ -77,7 +77,7 @@ A fully-loaded version with all renderers and jQuery UI Touch Punch for mobile c
 
 Finally, here is a demo where you can view your own data from a local CSV file, all in-browser with no server support: [Local CSV demo](http://nicolaskruchten.github.io/pivottable/examples/local.html).
 
-##How do I use the UI?
+###How do I use the UI?
 
 PivotTable.js implements a pivot table drag'n'drop UI similar to that found in popular spreadsheet programs. You can drag attributes into/out of the row/column areas, and choose a summary function. If you choose a summary function that takes an argument, like 'average', you'll have to drag a attribute onto the dropdown. 
 There is a [step-by-step tutorial](https://github.com/nicolaskruchten/pivottable/wiki/UI-Tutorial) in the wiki but the following animation gives you a taste of the interaction. It's based on the Canadian Parliament 2012 dataset.
@@ -85,7 +85,7 @@ There is a [step-by-step tutorial](https://github.com/nicolaskruchten/pivottable
 ![image](http://nicolaskruchten.github.io/pivottable/images/animation.gif)
 
 
-##How do I use the code?
+###How do I use the code?
 
 There are two main functions defined in `pivot.coffee`: `pivot()` and `pivotUI()`, both implemented as jQuery plugins, as well as a bunch of helpers and templates.
 
@@ -127,7 +127,7 @@ Note that `pivot()` and `pivotUI()` take different parameters in general, even t
 
 See the wiki for [full parameter documentation](https://github.com/nicolaskruchten/pivottable/wiki/Parameters).
 
-## Where is the documentation?
+### Where is the documentation?
 
 More extensive documentation can be found in the [wiki](https://github.com/nicolaskruchten/pivottable/wiki):
 
@@ -142,16 +142,16 @@ More extensive documentation can be found in the [wiki](https://github.com/nicol
 * [Google Charts and D3 Support](https://github.com/nicolaskruchten/pivottable/wiki/Google-Chart-and-D3-Support)
 * [Used By](https://github.com/nicolaskruchten/pivottable/wiki/Used-By)
 
-## How can I contribute?
+### How can I contribute?
 
 Pull requests are welcome! Here are some [Contribution Guidelines](https://github.com/nicolaskruchten/pivottable/wiki/Contribution-Guidelines).
 
-## I have a question, how can I get in touch?
+### I have a question, how can I get in touch?
 
 Please [create a GitHub Issue](https://github.com/nicolaskruchten/pivottable/issues/new) if the documentation here or in the [FAQ](https://github.com/nicolaskruchten/pivottable/wiki/Frequently-Asked-Questions) or elsewhere on the [wiki](https://github.com/nicolaskruchten/pivottable/wiki) doesn't answer your question!
 
 
-##Copyright & Licence (MIT License)
+###Copyright & Licence (MIT License)
 
 PivotTable.js is © 2012-2013 Nicolas Kruchten, Datacratic, other contributors
 
