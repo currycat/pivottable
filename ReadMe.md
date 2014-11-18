@@ -5,7 +5,10 @@ This is a hack of [Nicolas Kruchten](http://nicolas.kruchten.com) gorgeus PivotT
 - callback method for table changes (onRefresh was not working for me)
 - css for edit/view mode
 - [bootstrap](http://getbootstrap.com/)ped css
-- new graphs for Google Chart
+- new graphs for Google Chart 
+
+## Next hacks
+- Clickable rows: made the rows clickable and notified by a delegate pattern method (sorry I'm from iOS)
 
 ## Example of use (hacked ver) 
 ### HTML (AngularJS)
